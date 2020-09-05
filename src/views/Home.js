@@ -5,11 +5,12 @@ function Home() {
     return (
         <div>
             <TwitterLogin
-                loginUrl='https://my.api.mockaroo.com/jj.json?key=5a2ce5d0'
+                loginUrl='http://localhost:8085/login'
                 onFailure={()=>console.log("lol")}
                 onSuccess={()=>console.log("succes roflmao")}
-                requestTokenUrl='https://my.api.mockaroo.com/jj.json?key=5a2ce5d0'
+                requestTokenUrl='http://localhost:8085/'
             />
+            <a href="http://localhost:8085/login">Twitter</a>
         </div>
     )
 }
