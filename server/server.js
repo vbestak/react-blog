@@ -76,27 +76,27 @@ app.get(
 );
 
 app.post("/api/tweet", (req, res) => {
-  if (req.session["passport"] == undefined)
+  if (req.session["passport"] === undefined) {
     res.json({
       code: 404,
       message: "User not loged in",
     });
+  } else {
+    createTwitObject(
+      req.session.passport.user.token,
+      req.session.passport.user.tokenSecret
+    ).post(
+      "statuses/update",
+      { status: req.body.status },
+      (err, data, response) => {
+        console.log("success (:");
+      }
+    );
 
-  console.log(JSON.stringify(req.body), "----------");
-
-  createTwitObject(
-    req.session.passport.user.token,
-    req.session.passport.user.tokenSecret
-  ).post(
-    "statuses/update", { status: req.body.status },
-    (err, data, response) => {
-      console.log(data);
-    }
-  );
-
-  res.json({
-    message: "Successfully tweeted",
-  });
+    res.json({
+      message: "Successfully tweeted",
+    });
+  }
 });
 
 app.get("*", (req, res) => {
