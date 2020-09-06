@@ -8,7 +8,7 @@ function Header() {
         <div>
             <header>
                 <div>
-                    <h2> Reddit 2.0</h2>
+                    <h2> {title}</h2>
                 </div>
                 <Navigation />
             </header>
