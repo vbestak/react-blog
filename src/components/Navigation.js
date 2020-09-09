@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {useTransition, animated} from 'react-spring'
+import { Link } from 'react-router-dom'
 
 function Navigation() {
     const [showMenu, setShowMenu] = useState(false);
@@ -20,12 +21,9 @@ function Navigation() {
                 <div style={{textAlign: 'center', fontSize: 16+'px', padding: 2+'em', backgroundColor: 'rgb(204, 126, 126)'}}>
                     Welcome to Reddit 2.0!
                 </div>
-                <a href="#">
-                    Item
-                </a>
-                <a href="#">
-                    item2
-                </a>
+                
+                <Link to="/">Home</Link>
+                <Link to="/tweet">Tweet</Link>
             </nav>
         );
     }
