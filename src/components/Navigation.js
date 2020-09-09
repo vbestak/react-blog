@@ -5,7 +5,7 @@ import { useTransition, animated } from "react-spring";
 import { Link } from "react-router-dom";
 
 function Navigation() {
-  const [showMenu, setShowMenu] = useState(false);
+  let [showMenu, setShowMenu] = useState(false);
   let menu = "";
   let menuItems = [
     { to: "/", info: "Home" },
@@ -33,8 +33,8 @@ function Navigation() {
           Welcome to Reddit 2.0!
         </div>
 
-        {menuItems.map((item) => (
-          <Link to={item.to}> {item.info} </Link>
+        {menuItems.map((item, index) => (
+          <Link key={index} to={item.to}> {item.info} </Link>
         ))}
       </nav>
     );
@@ -62,6 +62,21 @@ function Navigation() {
               {menu}
             </animated.div>
           )
+      )}
+
+      {showMenu && (
+        <div
+          style={{
+            zIndex: 10,
+            backgroundColor: "rgba(0,0,0, 0.5)",
+            width: "100vw",
+            height: "100vh",
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+        onClick={()=>setShowMenu(showMenu=false)}
+        ></div>
       )}
     </div>
   );
