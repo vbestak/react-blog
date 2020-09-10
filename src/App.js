@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import HomeView from "./views/HomeView";
 import TweetView from "./views/TweetView";
+import BrowseTweetView from "./views/BrowseTweetsView";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/tweet">
             <TweetView />
+          </Route>
+          <Route path="/myTweets">
+            <BrowseTweetView />
           </Route>
         </Switch>
       </div>

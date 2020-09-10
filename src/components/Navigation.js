@@ -10,6 +10,7 @@ function Navigation() {
   let menuItems = [
     { to: "/", info: "Home" },
     { to: "/tweet", info: "Tweet" },
+    { to: "/myTweets", info: "BrowseMyTweets" },
   ];
 
   const transitions = useTransition(showMenu, null, {
@@ -34,7 +35,7 @@ function Navigation() {
         </div>
 
         {menuItems.map((item, index) => (
-          <Link key={index} to={item.to}> {item.info} </Link>
+          <Link key={index} to={item.to} onClick={()=>setShowMenu(showMenu=false)}> {item.info} </Link>
         ))}
       </nav>
     );
