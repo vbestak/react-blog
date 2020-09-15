@@ -99,6 +99,34 @@ app.post("/api/tweet", (req, res) => {
   }
 });
 
+app.get('/api/user-tweets', (req, res) => {
+  if (req.session["passport"] === undefined) {
+    res.json({
+      code: 404,
+      message: "User not loged in",
+    });
+  } else {
+    createTwitObject(
+      req.session.passport.user.token,
+      req.session.passport.user.tokenSecret
+    ).get(
+      "statuses/user_timeline",
+      { user_id: req.session["passport"]["user"].id,
+        count: 5,
+        include_rts: false},
+      (err, data, response) => {
+        console.log("success (: ----------------", data);
+
+        res.json({
+          message: "Successfully retreived user tweets",
+          data: data
+        });
+      }
+    );
+
+  }
+});
+
 app.get("*", (req, res) => {
   console.log(JSON.stringify(req.session), "  session");
   res.sendFile(path.join(__dirname, "public", "index.html"));
