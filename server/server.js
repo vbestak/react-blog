@@ -127,6 +127,31 @@ app.get('/api/user-tweets', (req, res) => {
   }
 });
 
+app.delete('/api/tweet/:id', (req, res) => {
+  /* statuses/destroy/:id */
+  if (req.session["passport"] === undefined) {
+    res.json({
+      code: 404,
+      message: "User not loged in",
+    });
+  } else {
+    createTwitObject(
+      req.session.passport.user.token,
+      req.session.passport.user.tokenSecret
+    ).get(
+      `statuses/destroy/${req.params["id"]}`,
+      (err, data, response) => {
+        console.log("successfully deleted (: ----------------",);
+
+        res.json({
+          message: "Successfully deleted user tweet",
+        });
+      }
+    );
+
+  }
+});
+
 app.get("*", (req, res) => {
   console.log(JSON.stringify(req.session), "  session");
   res.sendFile(path.join(__dirname, "public", "index.html"));
