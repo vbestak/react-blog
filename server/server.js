@@ -115,8 +115,6 @@ app.get('/api/user-tweets', (req, res) => {
         count: 5,
         include_rts: false},
       (err, data, response) => {
-        console.log("success (: ----------------", data);
-
         res.json({
           message: "Successfully retreived user tweets",
           data: data
@@ -138,10 +136,12 @@ app.delete('/api/tweet/:id', (req, res) => {
     createTwitObject(
       req.session.passport.user.token,
       req.session.passport.user.tokenSecret
-    ).get(
-      `statuses/destroy/${req.params["id"]}`,
+    ).post(
+      "statuses/destroy/:id",
+      { id: req.params["id"]},
       (err, data, response) => {
-        console.log("successfully deleted (: ----------------",);
+        console.log("successfully deleted (: ----------------", req.params["id"]);
+        console.log(data, "response-------------------------------")
 
         res.json({
           message: "Successfully deleted user tweet",
