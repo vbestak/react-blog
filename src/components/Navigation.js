@@ -31,7 +31,7 @@ function Navigation() {
             backgroundColor: "rgb(204, 126, 126)",
           }}
         >
-          Welcome to Reddit 2.0!
+          Welcome to Twitter manager!
         </div>
 
         {menuItems.map((item, index) => (

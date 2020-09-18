@@ -2,7 +2,7 @@ import React from 'react'
 import Navigation from './Navigation'
 
 function Header() {
-    let title = "Reddit 2.0"
+    let title = "TwitterManager"
 
     return (
         <div>
