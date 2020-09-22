@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 
 function BrowseTweetsView() {
   let [tweets, setTweets] = useState([])
+  let [flag, setFlag] = useState(false)
   let body = "";
 
   useEffect(() => {
@@ -18,7 +19,7 @@ function BrowseTweetsView() {
         console.log(data.message);
         setTweets(data.data)
       });
-  }, [tweets])
+  }, [flag])
 
   let deleteTweet = (id) => {
     fetch(`/api/tweet/${id}`, {
@@ -32,11 +33,11 @@ function BrowseTweetsView() {
       })
       .then(function (data) {
         console.log(data.message);
-        setTweets(tweets = [""]);
+        setFlag(flag = !flag);
       });
   };
 
-  if(tweets != undefined){
+  if(Array.isArray(tweets)){
     body = tweets.map((tweet, index) => {
       return (
         <div key={index} style={tweetCSS}>
