@@ -18,7 +18,7 @@ function BrowseTweetsView() {
         console.log(data.message);
         setTweets(data.data)
       });
-  }, [])
+  }, [tweets])
 
   let deleteTweet = (id) => {
     fetch(`/api/tweet/${id}`, {
@@ -32,6 +32,7 @@ function BrowseTweetsView() {
       })
       .then(function (data) {
         console.log(data.message);
+        setTweets(tweets = [""]);
       });
   };
 
