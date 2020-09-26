@@ -42,8 +42,7 @@ function BrowseTweetsView() {
       return (
         <div key={index} style={tweetCSS}>
           <div>Created {tweet.created_at}</div>
-          <div style={{ borderBottom: "2px solid lightgrey" }}>
-            {" "}
+          <div>
             Status: {tweet.text}{" "}
           </div>
           <button onClick={()=>deleteTweet(tweet.id_str)}>Delete</button>
@@ -61,6 +60,7 @@ function BrowseTweetsView() {
 
 let tweetCSS = {
   padding: ".5em 5px",
+  borderBottom: "2px solid lightgrey"
 };
 
 export default BrowseTweetsView;
