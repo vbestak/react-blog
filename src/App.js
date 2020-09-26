@@ -14,20 +14,22 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        
+
         <Footer />
 
-        <Switch>
-          <Route exact path="/">
-            <HomeView />
-          </Route>
-          <Route path="/tweet">
-            <TweetView />
-          </Route>
-          <Route path="/myTweets">
-            <BrowseTweetView />
-          </Route>
-        </Switch>
+        <div className={"view-container"}>
+          <Switch>
+            <Route exact path="/">
+              <HomeView />
+            </Route>
+            <Route path="/tweet">
+              <TweetView />
+            </Route>
+            <Route path="/myTweets">
+              <BrowseTweetView />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );
