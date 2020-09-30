@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 function Tweet() {
-  const [statusText, setStatusTexts] = useState("")
+  const [statusText, setStatusText] = useState("")
 
   const handleTweetChange = (e)=>{
-    setStatusTexts(e.target.value);
+    setStatusText(e.target.value);
   }
 
   let tweet = () => {
@@ -20,6 +20,7 @@ function Tweet() {
       })
       .then(function (data) {
         console.log(data.message);
+        setStatusText("")
       });
   };
 
