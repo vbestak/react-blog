@@ -4,7 +4,7 @@ function Footer() {
     return (
             <footer>
                 <div>
-                    some footer data
+                    Made by Valentino Beštak
                 </div>
             </footer>
     )
