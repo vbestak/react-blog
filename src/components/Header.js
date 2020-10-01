@@ -8,7 +8,7 @@ function Header() {
         <div>
             <header>
                 <div>
-                    <h2> {title}</h2>
+                    <h2 style={{fontWeight:"500", fontSize:"24px"}}> {title}</h2>
                 </div>
                 <Navigation />
             </header>

@@ -26,9 +26,11 @@ function Navigation() {
         <div
           style={{
             textAlign: "center",
-            fontSize: 16 + "px",
-            padding: 2 + "em",
-            backgroundColor: "rgb(204, 126, 126)",
+            fontWeight: "lighter",
+            fontSize: 20 + "px",
+            padding: 1 + "em",
+            backgroundColor: "#F8A97F",
+            color: "#F6F3F1",
           }}
         >
           Welcome to Twitter manager!
