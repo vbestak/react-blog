@@ -71,7 +71,7 @@ app.get(
   "/twitter/callback",
   passport.authenticate("twitter", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("/");
+    res.redirect("/myTweets");
   }
 );
 
