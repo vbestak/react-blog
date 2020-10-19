@@ -1,3 +1,4 @@
+import { noAuto } from "@fortawesome/fontawesome-svg-core";
 import React, {useEffect, useState} from "react";
 
 function BrowseTweetsView() {
@@ -17,7 +18,7 @@ function BrowseTweetsView() {
       })
       .then(function (data) {
         console.log(data.message);
-        setTweets(data.data)
+        setTweets( t => t = data.data)
       });
   }, [flag])
 
@@ -53,12 +54,15 @@ function BrowseTweetsView() {
 
   return (
     <div>
+      <h3 style={{fontSize:'22px', fontWeight:350}}>Current user tweets:</h3>
       {body}
     </div>
   );
 }
 
 let tweetCSS = {
+  width: "85%",
+  margin: "0 auto",
   padding: ".5em 5px",
   borderBottom: "2px solid lightgrey"
 };

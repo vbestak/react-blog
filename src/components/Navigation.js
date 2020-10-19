@@ -29,7 +29,7 @@ function Navigation() {
             fontWeight: "lighter",
             fontSize: 20 + "px",
             padding: 1 + "em",
-            backgroundColor: "#F8A97F",
+            backgroundColor: "#0f8b8d",
             color: "#F6F3F1",
           }}
         >
